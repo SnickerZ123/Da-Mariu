@@ -18,14 +18,14 @@ const Home = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
   const navigate = useNavigate()
   
-  const carouselImages = [
-    '/images/home-reel/carbonara.png',
-    '/images/home-reel/fish-dish.png',
-    '/images/home-reel/mixed-fish-dish.png',
-    '/images/home-reel/bolognese.png',
-    '/images/home-reel/desert.png',
-    '/images/home-reel/food-dish2.png',
-    '/images/home-reel/pasta-dish.png'
+ const carouselImages = [
+    '/Da-Mariu/images/home-reel/carbonara.png',
+    '/Da-Mariu/images/home-reel/fish-dish.png',
+    '/Da-Mariu/images/home-reel/mixed-fish-dish.png',
+    '/Da-Mariu/images/home-reel/bolognese.png',
+    '/Da-Mariu/images/home-reel/desert.png',
+    '/Da-Mariu/images/home-reel/food-dish2.png',
+    '/Da-Mariu/images/home-reel/pasta-dish.png'
   ]
 
   useEffect(() => {
