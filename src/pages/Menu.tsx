@@ -49,12 +49,17 @@ import { InfoIcon } from '@chakra-ui/icons';
 
 const MotionBox = motion(Box);
 
+interface PriceOption {
+  size?: string;
+  price: string;
+}
+
 interface MenuItem {
   name: string;
-  price: string;
+  price: string | PriceOption[];
   description?: string;
   isVegetarian?: boolean;
-  spiceLevel?: number;  // Number of chili peppers (1-3)
+  spiceLevel?: number;
 }
 
 interface MenuSection {
@@ -182,7 +187,10 @@ const Menu = () => {
         },
         {
           name: "Pane Pizza",
-          price: "Small £4.90 / Large £7.90",
+          price: [
+            { size: "Small", price: "£4.90" },
+            { size: "Large", price: "£7.90" }
+          ],
           description: "Pizza bread with garlic & cheese",
           isVegetarian: true
         },
@@ -282,7 +290,10 @@ const Menu = () => {
         },
         {
           name: "Grigliata di Carne",
-          price: "£26.90 / £49.90",
+          price: [
+            { size: "Regular", price: "£26.90" },
+            { size: "Large", price: "£49.90" }
+          ],
           description: "Mixed grilled meat platter"
         }
       ]
@@ -477,7 +488,10 @@ const Menu = () => {
         { name: "Crodino", price: "£4.50" },
         { name: "Tonic Water", price: "£4.50", description: "200ml" },
         { name: "San Pellegrino Limonata", price: "£4.50", description: "330ml" },
-        { name: "Estathé Peach / Lemon", price: "£3.90 / £4.20", description: "330ml" },
+        { name: "Estathé", price: [
+            { size: "Peach", price: "£3.90" },
+            { size: "Lemon", price: "£4.20" }
+          ], description: "330ml" },
         { name: "Ice Latte", price: "£4.20" },
         { name: "Ice Latte with Syrup", price: "£4.70" },
         { name: "Red Bull", price: "£4.50", description: "250ml" }
@@ -545,12 +559,19 @@ const Menu = () => {
 
   // Function to render spice level indicators
   const renderSpiceLevel = (level: number) => {
+    const spiceLevelText = level === 1 ? "Mildly Spicy" : "Spicy";
     return (
-      <HStack spacing={0.5}>
-        {[...Array(level)].map((_, i) => (
-          <Icon key={i} as={FaPepperHot} color="red.500" boxSize={3} />
-        ))}
-      </HStack>
+      <Box display="inline-block">
+        <Tooltip label={spiceLevelText}>
+          <Box>
+            <HStack spacing={0.5}>
+              {[...Array(level)].map((_, i) => (
+                <Icon key={i} as={FaPepperHot} color="red.500" boxSize={3} />
+              ))}
+            </HStack>
+          </Box>
+        </Tooltip>
+      </Box>
     );
   };
 
@@ -833,9 +854,22 @@ const Menu = () => {
                                     {item.spiceLevel && renderSpiceLevel(item.spiceLevel)}
                                   </Flex>
                                 </VStack>
-                                <Text fontWeight="bold" color="olive.600" fontSize="sm" whiteSpace="nowrap">
-                                  {item.price}
-                                </Text>
+                                <Box textAlign="right">
+                                  {Array.isArray(item.price) ? (
+                                    <VStack align="end" spacing={0.5}>
+                                      {item.price.map((priceOption, idx) => (
+                                        <Text key={idx} fontWeight="bold" color="olive.600" fontSize="sm" whiteSpace="nowrap">
+                                          {priceOption.size && <Text as="span" fontWeight="normal" color="gray.600" mr={1}>{priceOption.size}:</Text>}
+                                          {priceOption.price}
+                                        </Text>
+                                      ))}
+                                    </VStack>
+                                  ) : (
+                                    <Text fontWeight="bold" color="olive.600" fontSize="sm" whiteSpace="nowrap">
+                                      {item.price}
+                                    </Text>
+                                  )}
+                                </Box>
                               </Flex>
                             </Box>
                           ))}
