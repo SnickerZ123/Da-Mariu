@@ -722,7 +722,7 @@ const Menu = () => {
               <Button
                 as="a"
                 href="/Da-Mariu/menu/Menu_2025_07_10.pdf"
-                download="Da_Mariu_Menu_2025_07_10.pdf"
+                download="Da_Mariu_Menu.pdf"
                 size="lg"
                 colorScheme="olive"
                 leftIcon={<FaUtensils />}
