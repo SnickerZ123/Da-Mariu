@@ -19,13 +19,13 @@ const Home = () => {
   const navigate = useNavigate()
   
  const carouselImages = [
-    '/Da-Mariu/images/home-reel/carbonara.png',
-    '/Da-Mariu/images/home-reel/fish-dish.png',
-    '/Da-Mariu/images/home-reel/mixed-fish-dish.png',
-    '/Da-Mariu/images/home-reel/bolognese.png',
-    '/Da-Mariu/images/home-reel/desert.png',
-    '/Da-Mariu/images/home-reel/food-dish2.png',
-    '/Da-Mariu/images/home-reel/pasta-dish.png'
+    '/Da-Mariu/images/home-reel/carbonara.webp',
+    '/Da-Mariu/images/home-reel/fish-dish.webp',
+    '/Da-Mariu/images/home-reel/mixed-fish-dish.webp',
+    '/Da-Mariu/images/home-reel/bolognese.webp',
+    '/Da-Mariu/images/home-reel/desert.webp',
+    '/Da-Mariu/images/home-reel/food-dish2.webp',
+    '/Da-Mariu/images/home-reel/pasta-dish.webp'
   ]
 
   useEffect(() => {
