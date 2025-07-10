@@ -18,7 +18,11 @@ const Home = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
   const navigate = useNavigate()
   
+<<<<<<< HEAD
  const carouselImages = [
+=======
+  const carouselImages = [
+>>>>>>> 966df0c (Update image and favicon paths to include /Da-Mariu base path for GitHub Pages deployment)
     '/Da-Mariu/images/home-reel/carbonara.png',
     '/Da-Mariu/images/home-reel/fish-dish.png',
     '/Da-Mariu/images/home-reel/mixed-fish-dish.png',

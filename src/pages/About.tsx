@@ -100,7 +100,7 @@ const About = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage="url('/images/interior-exterior/shop_exterior.png')"
+          bgImage="url('/Da-Mariu/images/interior-exterior/shop_exterior.png')"
           bgPosition="center 70%"
           bgSize="cover"
           _after={{
@@ -219,7 +219,7 @@ const About = () => {
               boxShadow="xl"
             >
               <Image
-                src="/images/interior-exterior/inside.png"
+                src="/Da-Mariu/images/interior-exterior/inside.png"
                 alt="Restaurant Interior"
                 w="100%"
                 h="100%"

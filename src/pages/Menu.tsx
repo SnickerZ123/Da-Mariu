@@ -117,8 +117,8 @@ const Menu = () => {
         },
         {
           name: "Tagliere Mariù",
-          price: "£8.99",
-          description: "Cold cuts, cheese, olives, bread"
+          price: "£10.90",
+          description: "Cold cuts, cheese, olives, artichokes, sun-dried tomatoes, bread"
         },
         {
           name: "Antipasto Caldo",
@@ -161,7 +161,7 @@ const Menu = () => {
         },
         {
           name: "Coppo Fritto",
-          price: "£12.50",
+          price: "£19.90",
           description: "Fried seafood with sriracha mayo",
           spiceLevel: 2
         },
@@ -238,20 +238,19 @@ const Menu = () => {
         {
           name: "Tagliata di Manzo",
           price: "£21.90",
-          description: "Ribeye with fries and sriracha mayo",
-          spiceLevel: 2
+          description: "Ribeye with fries, rocket, grana padano and sriracha mayo",
         },
         {
           name: "Salmone Grigliato",
           price: "£21.90",
           description: "Garlic & chilli broccoli, lemon cream",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Salsiccia Grigliata",
           price: "£15.90",
           description: "Sausages with chilli friarielli",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Grigliata di Pesce",
@@ -279,7 +278,7 @@ const Menu = () => {
           name: "Paccheri al Salmone",
           price: "£16.90",
           description: "Salmon pasta with chilli flakes",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Grigliata di Carne",
@@ -316,7 +315,7 @@ const Menu = () => {
           price: "£6.90",
           description: "Broccoli with garlic & chilli",
           isVegetarian: true,
-          spiceLevel: 2
+          spiceLevel: 1
         }
       ]
     },
@@ -338,7 +337,7 @@ const Menu = () => {
         {
           name: "Diavola",
           price: "£12.90",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Romana",
@@ -373,7 +372,7 @@ const Menu = () => {
         {
           name: "Friarielli",
           price: "£16.90",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "San Daniele",
@@ -382,7 +381,7 @@ const Menu = () => {
         {
           name: "Marci Special",
           price: "£15.90",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Mariù Special",
@@ -407,7 +406,7 @@ const Menu = () => {
         {
           name: "Frutti di Mare",
           price: "£18.90",
-          spiceLevel: 2
+          spiceLevel: 1
         },
         {
           name: "Salmone",
