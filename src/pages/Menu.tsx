@@ -700,16 +700,15 @@ const Menu = () => {
             <Box textAlign="center" mt={4} pb={2}>
               <Button
                 as="a"
-                href="/menu/Menu.pdf"
-                download="Da_Mariu_Menu.pdf"
-                size="sm"
+                href="/Da-Mariu/menu/Menu_2025_07_10.pdf"
+                download="Da_Mariu_Menu_2025_07_10.pdf"
+                size="lg"
                 colorScheme="olive"
-                variant="outline"
-                leftIcon={<Icon as={FaUtensils} />}
+                leftIcon={<FaUtensils />}
+                mb={8}
                 _hover={{
-                  bg: 'olive.50',
-                  transform: 'translateY(-1px)',
-                  boxShadow: 'sm'
+                  transform: 'translateY(-2px)',
+                  boxShadow: 'lg',
                 }}
                 transition="all 0.2s"
               >
