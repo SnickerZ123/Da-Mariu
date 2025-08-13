@@ -1,0 +1,37 @@
+{
+  "name": "pasta_website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "typescript": "^5.0.2",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/theme-tools": "^2.2.6",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/lato": "^5.2.6",
+    "@fontsource/playfair-display": "^5.2.6",
+    "@types/uuid": "^10.0.0",
+    "framer-motion": "^10.18.0",
+    "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.2",
+    "uuid": "^11.1.0"
+  }
+}
+
