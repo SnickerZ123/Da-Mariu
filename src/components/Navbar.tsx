@@ -148,7 +148,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <HStack spacing={8} display={{ base: "none", md: "flex" }}>
             <HStack spacing={6}>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
               <NavLink to="/menu">Menu</NavLink>
               <NavLink to="/about">About Us</NavLink>
               <NavLink to="/contact">Contact</NavLink>
@@ -317,7 +317,7 @@ const Navbar = () => {
           </DrawerHeader>
           <DrawerBody pt={4}>
             <VStack spacing={2} align="stretch" mb={8}>
-              <MobileNavLink to="/" onClick={onClose}>Home</MobileNavLink>
+              <MobileNavLink to="/home" onClick={onClose}>Home</MobileNavLink>
               <MobileNavLink to="/menu" onClick={onClose}>Menu</MobileNavLink>
               <MobileNavLink to="/about" onClick={onClose}>About Us</MobileNavLink>
               <MobileNavLink to="/contact" onClick={onClose}>Contact</MobileNavLink>
