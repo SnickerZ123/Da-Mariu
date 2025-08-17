@@ -19,7 +19,7 @@ const Home = () => {
   const navigate = useNavigate()
   
  const carouselImages = [
-    '/images/home-reelcarbonara.webp',
+    '/images/home-reel/carbonara.webp',
     '/images/home-reel/fish-dish.webp',
     '/images/home-reel/mixed-fish-dish.webp',
     '/images/home-reel/bolognese.webp',
@@ -144,4 +144,5 @@ const Home = () => {
 }
 
 export default Home 
+
 
