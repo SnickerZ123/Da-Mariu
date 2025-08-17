@@ -689,8 +689,12 @@ const Menu = () => {
           <CardBody pt={6} pb={4}>
             <Box maxW="800px" width="100%" mx="auto">
               <SimpleGrid 
-                columns={{ base: activeSection === 'food' ? 5 : 4, md: activeSection === 'food' ? 5 : 4 }} 
-                spacing={4} 
+                columns={{ 
+                  base: activeSection === 'food' ? 3 : 2, 
+                  sm: activeSection === 'food' ? 5 : 4,
+                  md: activeSection === 'food' ? 5 : 4 
+                }} 
+                spacing={{ base: 2, sm: 4 }}
                 width="100%">
                 {(activeSection === 'food' ? foodSections : drinkSections).map((section) => (
                   <Box key={section.id} width="100%">
@@ -709,11 +713,11 @@ const Menu = () => {
                         bg: 'olive.100',
                       }}
                       height="40px"
-                      fontSize="sm"
+                      fontSize={{ base: "xs", sm: "sm" }}
                       fontWeight="medium"
                       transition="all 0.2s"
                       textAlign="center"
-                      px={3}
+                      px={{ base: 2, sm: 3 }}
                       width="100%"
                       rounded="md"
                     >
