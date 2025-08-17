@@ -726,7 +726,7 @@ const Menu = () => {
             <Box textAlign="center" mt={6} pb={2}>
               <Button
                 as="a"
-                href="/Da-Mariu/menu/Menu_2025_07_10.pdf"
+                href="/menu/Menu_2025_07_10.pdf"
                 download="Da_Mariu_Menu.pdf"
                 size="md"
                 colorScheme="olive"
@@ -979,3 +979,4 @@ const Menu = () => {
 };
 
 export default Menu; 
+
