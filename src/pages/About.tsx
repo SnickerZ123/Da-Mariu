@@ -100,7 +100,7 @@ const About = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage="url('/Da-Mariu/images/interior-exterior/shop_exterior.webp')"
+          bgImage="url('/images/interior-exterior/shop_exterior.webp')"
           bgPosition="center 70%"
           bgSize="cover"
           _after={{
@@ -219,7 +219,7 @@ const About = () => {
               boxShadow="xl"
             >
               <Image
-                src="/Da-Mariu/images/interior-exterior/inside.webp"
+                src="/images/interior-exterior/inside.webp"
                 alt="Restaurant Interior"
                 w="100%"
                 h="100%"
@@ -278,5 +278,6 @@ const About = () => {
     </Box>
   )
 }
+
 
 export default About 
