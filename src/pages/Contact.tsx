@@ -72,7 +72,7 @@ const Contact = () => {
           left={0}
           right={0}
           bottom={0}
-          bgImage="url('/Da-Mariu/images/interior-exterior/sofa.jpg')"
+          bgImage="url('/images/interior-exterior/sofa.jpg')"
           bgPosition="center"
           bgSize="cover"
           _after={{
@@ -485,5 +485,6 @@ const Contact = () => {
     </Box>
   )
 }
+
 
 export default Contact 
