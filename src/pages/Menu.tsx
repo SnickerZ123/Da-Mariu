@@ -728,11 +728,14 @@ const Menu = () => {
                 as="a"
                 href="/menu/Menu_2025_07_10.pdf"
                 download="Da_Mariu_Menu.pdf"
-                size="md"
+                size={{ base: "sm", md: "md" }}
                 colorScheme="olive"
                 leftIcon={<FaUtensils />}
                 mb={8}
-                px={6}
+                px={{ base: 4, md: 6 }}
+                width={{ base: "90%", sm: "auto" }}
+                maxW="300px"
+                fontSize={{ base: "sm", md: "md" }}
                 _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: 'lg',
@@ -979,4 +982,3 @@ const Menu = () => {
 };
 
 export default Menu; 
-
