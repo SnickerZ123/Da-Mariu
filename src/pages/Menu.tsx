@@ -825,7 +825,6 @@ const Menu = () => {
       </Box>
     </CardBody>
   </Card>
-</Container>
         {/* Content Area */}
         <SlideFade in={true} offsetY="20px">
           <Box mb={10}>
