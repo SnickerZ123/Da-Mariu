@@ -681,28 +681,20 @@ const Menu = () => {
       </Box>
 
 {/* Main Menu Navigation */}
-<Container
-  maxW={{ base: "95%", sm: "85%", md: "80%", lg: "900px" }}
-  px={4}
->
-  <Card mb={8} variant="outline" bg="white" boxShadow="sm">
-    <CardHeader py={5} borderBottom="1px" borderColor="gray.100">
+<Container maxW={{ base: "95%", sm: "85%", md: "80%", lg: "900px" }} px={4}>
+  <Card mb={6} variant="outline" bg="white" boxShadow="sm">
+    <CardHeader py={3} borderBottom="1px" borderColor="gray.100">
       <Flex justify="center" gap={4}>
         <Button
           leftIcon={<Icon as={FaUtensils} boxSize={4} />}
           onClick={() => setActiveSection("food")}
           bg={activeSection === "food" ? "olive.500" : "white"}
           color={activeSection === "food" ? "white" : "gray.600"}
-          _hover={{
-            bg: activeSection === "food" ? "olive.600" : "gray.50",
-          }}
+          _hover={{ bg: activeSection === "food" ? "olive.600" : "gray.50" }}
           size="md"
           px={6}
           borderWidth="1px"
-          borderColor={
-            activeSection === "food" ? "olive.500" : "gray.200"
-          }
-          transition="all 0.2s"
+          borderColor={activeSection === "food" ? "olive.500" : "gray.200"}
           fontWeight="medium"
           rounded="md"
         >
@@ -714,16 +706,11 @@ const Menu = () => {
           onClick={() => setActiveSection("drinks")}
           bg={activeSection === "drinks" ? "olive.500" : "white"}
           color={activeSection === "drinks" ? "white" : "gray.600"}
-          _hover={{
-            bg: activeSection === "drinks" ? "olive.600" : "gray.50",
-          }}
+          _hover={{ bg: activeSection === "drinks" ? "olive.600" : "gray.50" }}
           size="md"
           px={6}
           borderWidth="1px"
-          borderColor={
-            activeSection === "drinks" ? "olive.500" : "gray.200"
-          }
-          transition="all 0.2s"
+          borderColor={activeSection === "drinks" ? "olive.500" : "gray.200"}
           fontWeight="medium"
           rounded="md"
         >
@@ -732,23 +719,20 @@ const Menu = () => {
       </Flex>
     </CardHeader>
 
-    <CardBody pt={6} pb={4}>
-      <Box maxW="800px" width="100%" mx="auto">
+    <CardBody pt={4} pb={4}>
+      <Box maxW="800px" mx="auto">
         <SimpleGrid
           columns={{
             base: activeSection === "food" ? 3 : 2,
             sm: activeSection === "food" ? 5 : 4,
             md: activeSection === "food" ? 5 : 4,
           }}
-          spacing={{ base: 2, sm: 4 }}
-          width="100%"
+          spacing={{ base: 2, sm: 3 }}
         >
-          {(activeSection === "food"
-            ? foodSections
-            : drinkSections
-          ).map((section) => (
-            <Box key={section.id} width="100%">
+          {(activeSection === "food" ? foodSections : drinkSections).map(
+            (section) => (
               <Button
+                key={section.id}
                 variant="ghost"
                 size="sm"
                 onClick={() => scrollToSection(section.id)}
@@ -759,72 +743,54 @@ const Menu = () => {
                   color: "olive.700",
                   transform: "translateY(-1px)",
                 }}
-                _active={{
-                  bg: "olive.100",
-                }}
-                height="40px"
+                _active={{ bg: "olive.100" }}
+                height="36px"
                 fontSize={{ base: "xs", sm: "sm" }}
                 fontWeight="medium"
-                transition="all 0.2s"
-                textAlign="center"
                 px={{ base: 2, sm: 3 }}
-                width="100%"
                 rounded="md"
               >
                 {section.title}
               </Button>
-            </Box>
-          ))}
+            )
+          )}
         </SimpleGrid>
       </Box>
 
-      <Box textAlign="center" mt={6} pb={2}>
-        <Button
-          as="a"
-          href="/menu/Menu_2026_01_05.pdf"
-          download="Da_Mariu_Menu.pdf"
-          size={{ base: "sm", md: "md" }}
-          colorScheme="olive"
-          leftIcon={<FaUtensils />}
-          mb={8}
-          px={{ base: 4, md: 6 }}
-          width={{ base: "90%", sm: "auto" }}
-          maxW="300px"
-          fontSize={{ base: "sm", md: "md" }}
-          _hover={{
-            transform: "translateY(-2px)",
-            boxShadow: "lg",
-          }}
-          transition="all 0.2s"
-        >
-          Download Full Menu
-        </Button>
-      </Box>
+      <Box mt={4} textAlign="center">
+        <VStack spacing={3}>
+          <Button
+            as="a"
+            href="/menu/Menu_2026_01_05.pdf"
+            download="Da_Mariu_Menu.pdf"
+            size={{ base: "sm", md: "md" }}
+            colorScheme="olive"
+            leftIcon={<FaUtensils />}
+            px={{ base: 4, md: 6 }}
+            width={{ base: "90%", sm: "auto" }}
+            maxW="300px"
+          >
+            Download Full Menu
+          </Button>
 
-      <Box textAlign="center" mt={6} pb={2}>
-        <Button
-          as="a"
-          href="/menu/Lunch Menu_Tue_Friday.pdf"
-          download="Da_Mariu_Lunch_Menu.pdf"
-          size={{ base: "sm", md: "md" }}
-          colorScheme="olive"
-          leftIcon={<FaUtensils />}
-          mb={8}
-          px={{ base: 4, md: 6 }}
-          width={{ base: "90%", sm: "auto" }}
-          maxW="300px"
-          fontSize={{ base: "sm", md: "md" }}
-          _hover={{
-            transform: "translateY(-2px)",
-            boxShadow: "lg",
-          }}
-          transition="all 0.2s"
-        >
-          Download Lunch Menu
-        </Button>
+          <Button
+            as="a"
+            href="/menu/Lunch Menu_Tue_Friday.pdf"
+            download="Da_Mariu_Lunch_Menu.pdf"
+            size={{ base: "sm", md: "md" }}
+            colorScheme="olive"
+            leftIcon={<FaUtensils />}
+            px={{ base: 4, md: 6 }}
+            width={{ base: "90%", sm: "auto" }}
+            maxW="300px"
+          >
+            Download Lunch Menu
+          </Button>
+        </VStack>
       </Box>
     </CardBody>
   </Card>
+  
         {/* Content Area */}
         <SlideFade in={true} offsetY="20px">
           <Box mb={10}>
