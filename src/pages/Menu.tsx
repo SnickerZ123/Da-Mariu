@@ -757,39 +757,40 @@ const Menu = () => {
         </SimpleGrid>
       </Box>
 
-      <Box mt={4} textAlign="center">
-        <VStack spacing={3}>
-          <Button
-            as="a"
-            href="https://github.com/SnickerZ123/Da-Mariu/blob/main/menu/Menu_2026_01_05.pdf"
-            download="Da_Mariu_Menu.pdf"
-            size={{ base: "sm", md: "md" }}
-            colorScheme="olive"
-            leftIcon={<FaUtensils />}
-            px={{ base: 4, md: 6 }}
-            width={{ base: "90%", sm: "auto" }}
-            maxW="300px"
-          >
-            Download Full Menu
-          </Button>
+<Box mt={4} textAlign="center">
+  <VStack spacing={3}>
+    <Button
+      as="a"
+      href="/menu/Menu_2026_01_05.pdf"
+      download
+      size={{ base: "sm", md: "md" }}
+      colorScheme="olive"
+      leftIcon={<FaUtensils />}
+      px={{ base: 4, md: 6 }}
+      width={{ base: "90%", sm: "auto" }}
+      maxW="300px"
+    >
+      Download Full Menu
+    </Button>
 
-          <Button
-            as="a"
-            href="https://github.com/SnickerZ123/Da-Mariu/blob/main/menu/Lunch%20Menu_Tue_Friday.pdf"
-            download="Da_Mariu_Lunch_Menu.pdf"
-            size={{ base: "sm", md: "md" }}
-            colorScheme="olive"
-            leftIcon={<FaUtensils />}
-            px={{ base: 4, md: 6 }}
-            width={{ base: "90%", sm: "auto" }}
-            maxW="300px"
-          >
-            Download Lunch Menu
-          </Button>
-        </VStack>
-      </Box>
-    </CardBody>
-  </Card>
+    <Button
+      as="a"
+      href="/menu/Lunch_Menu_Tue_Friday.pdf"
+      download
+      size={{ base: "sm", md: "md" }}
+      colorScheme="olive"
+      leftIcon={<FaUtensils />}
+      px={{ base: 4, md: 6 }}
+      width={{ base: "90%", sm: "auto" }}
+      maxW="300px"
+    >
+      Download Lunch Menu
+    </Button>
+  </VStack>
+</Box>
+
+</CardBody>
+</Card>
   
         {/* Content Area */}
         <SlideFade in={true} offsetY="20px">
@@ -1038,4 +1039,5 @@ const Menu = () => {
 };
 
 export default Menu; 
+
 
