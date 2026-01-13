@@ -761,7 +761,7 @@ const Menu = () => {
         <VStack spacing={3}>
           <Button
             as="a"
-            href="/menu/Menu_2026_01_05.pdf"
+            href="https://github.com/SnickerZ123/Da-Mariu/blob/main/menu/Menu_2026_01_05.pdf"
             download="Da_Mariu_Menu.pdf"
             size={{ base: "sm", md: "md" }}
             colorScheme="olive"
@@ -775,7 +775,7 @@ const Menu = () => {
 
           <Button
             as="a"
-            href="/menu/Lunch Menu_Tue_Friday.pdf"
+            href="https://github.com/SnickerZ123/Da-Mariu/blob/main/menu/Lunch%20Menu_Tue_Friday.pdf"
             download="Da_Mariu_Lunch_Menu.pdf"
             size={{ base: "sm", md: "md" }}
             colorScheme="olive"
@@ -1038,3 +1038,4 @@ const Menu = () => {
 };
 
 export default Menu; 
+
