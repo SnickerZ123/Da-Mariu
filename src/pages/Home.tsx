@@ -170,7 +170,7 @@ const Home = () => {
           >
             <Box
               as="img"
-              src="/images/award/badge.webp"
+              src="public/images/award/badge.webp"
               alt="Restaurant Guru 2025 – Top 10 Best Restaurant in Basingstoke"
               maxW={{ base: "80px", md: "120px" }}
             />
@@ -208,4 +208,5 @@ const Home = () => {
 }
 
 export default Home
+
 
