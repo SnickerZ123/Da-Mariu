@@ -192,7 +192,7 @@ const Home = () => {
           >
             <Box
               as="img"
-              src="/images/award/badge.webp"
+              src="public/images/award/badge.webp"
               alt="Restaurant Guru 2025 Award"
               maxH="90vh"
               maxW="90vw"
@@ -208,5 +208,6 @@ const Home = () => {
 }
 
 export default Home
+
 
 
