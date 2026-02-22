@@ -7,6 +7,11 @@ import {
   Button,
   Flex,
   useBreakpointValue,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
@@ -17,8 +22,9 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const isMobile = useBreakpointValue({ base: true, md: false })
   const navigate = useNavigate()
-  
- const carouselImages = [
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const carouselImages = [
     '/images/home-reel/carbonara.webp',
     '/images/home-reel/fish-dish.webp',
     '/images/home-reel/mixed-fish-dish.webp',
@@ -51,9 +57,9 @@ const Home = () => {
             transition="opacity 1.2s ease-in-out"
             bgImage={`url(${image})`}
             bgPosition={{ base: "50% 35%", md: "center" }}
-            bgSize={{ base: "cover", md: "cover" }}
+            bgSize="cover"
             bgRepeat="no-repeat"
-            transform="scale(1.02)"  // Slight scale to prevent white edges during transitions
+            transform="scale(1.02)"
             sx={{
               imageRendering: "high-quality",
               WebkitBackfaceVisibility: "hidden",
@@ -72,7 +78,7 @@ const Home = () => {
             }}
           />
         ))}
-        
+
         <Container maxW="1200px" h="100%" position="relative" zIndex={1}>
           <Flex
             direction="column"
@@ -97,6 +103,7 @@ const Home = () => {
               >
                 Welcome to Da Mariù
               </Heading>
+
               <Text
                 fontSize={{ base: "xl", md: "2xl" }}
                 fontFamily="'Lato', sans-serif"
@@ -108,12 +115,13 @@ const Home = () => {
               >
                 Italian warmth, passion, and flavour in every bite
               </Text>
+
               <Button
                 size="lg"
                 bg="whiteAlpha.200"
                 color="white"
                 border="2px solid white"
-                _hover={{ 
+                _hover={{
                   bg: 'whiteAlpha.300',
                   transform: 'translateY(-2px)',
                   boxShadow: '0 0 20px rgba(255,255,255,0.2)',
@@ -138,11 +146,65 @@ const Home = () => {
             </MotionBox>
           </Flex>
         </Container>
+
+        {/* Floating Award Badge */}
+        <Box
+          position="absolute"
+          bottom={{ base: 4, md: 8 }}
+          right={{ base: 4, md: 8 }}
+          zIndex={3}
+        >
+          <Box
+            onClick={onOpen}
+            cursor="pointer"
+            bg="whiteAlpha.200"
+            backdropFilter="blur(10px)"
+            p={3}
+            borderRadius="xl"
+            boxShadow="0 10px 30px rgba(0,0,0,0.4)"
+            transition="all 0.3s ease"
+            _hover={{
+              transform: "scale(1.05)",
+              bg: "whiteAlpha.300",
+            }}
+          >
+            <Box
+              as="img"
+              src="/images/award/badge.webp"
+              alt="Restaurant Guru 2025 – Top 10 Best Restaurant in Basingstoke"
+              maxW={{ base: "80px", md: "120px" }}
+            />
+          </Box>
+        </Box>
       </Box>
+
+      {/* Fullscreen Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="full">
+        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(8px)" />
+        <ModalContent bg="transparent" boxShadow="none">
+          <ModalBody
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            p={4}
+            cursor="pointer"
+            onClick={onClose}
+          >
+            <Box
+              as="img"
+              src="/images/award/badge.webp"
+              alt="Restaurant Guru 2025 Award"
+              maxH="90vh"
+              maxW="90vw"
+              objectFit="contain"
+              borderRadius="lg"
+              boxShadow="0 20px 60px rgba(0,0,0,0.6)"
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </Box>
   )
 }
 
-export default Home 
-
-
+export default Home
