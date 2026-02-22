@@ -262,7 +262,7 @@ const Menu = () => {
         },
         {
           name: "Tagliata di Manzo",
-          price: "£24.90",
+          price: "£27,80",
           description: "Ribeye with truffle oil and grana padano cheese fries, rocket, grana padano and sriracha mayo",
         },
         {
@@ -305,7 +305,7 @@ const Menu = () => {
         {
           name: "Grigliata di Carne",
           price: [
-            { size: "Regular", price: "£26.90" },
+            { size: "Regular", price: "£28,90" },
             { size: "Large", price: "£49.90" }
           ],
           description: "Mixed grilled meat platter"
@@ -450,6 +450,10 @@ const Menu = () => {
         {
           name: "Nonnina",
           price: "£16.90"
+        },
+        {
+          name: "Calzone Fritto",
+          price: "£19,90"
         },
         {
           name: "Frutti di Mare",
@@ -1039,5 +1043,6 @@ const Menu = () => {
 };
 
 export default Menu; 
+
 
 
