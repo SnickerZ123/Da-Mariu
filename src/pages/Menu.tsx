@@ -74,7 +74,7 @@ const foodSections = [
   { id: 'starters', title: 'Starters' },
   { id: 'mains', title: 'Main Courses' },
   { id: 'sides', title: 'Sides' },
-  { id: 'pizzas', title: 'Pizzas' },
+  { id: 'pizzas', title: 'Pizza' },
   { id: 'salads', title: 'Salads' },
 ];
 
@@ -156,7 +156,7 @@ const Menu = () => {
         {
           name: "Ortolano",
           price: "£9.90",
-          description: "Fried vegetables with tartare dip",
+          description: "Fried vegetables with sriracha mayo",
           isVegetarian: true
         },
         {
@@ -185,7 +185,7 @@ const Menu = () => {
         {
           name: "Calamari Fritti",
           price: "£10.90",
-          description: "Fried squid with tartare sauce"
+          description: "Fried squid with sriracha mayo"
         },
         {
           name: "Carpaccio di Bresaola",
@@ -202,10 +202,10 @@ const Menu = () => {
           isVegetarian: true
         },
         {
-          name: "Addiction Sauce",
-          price: "£2.00",
-          description: "Tartare and sriracha",
-          spiceLevel: 2
+          name: "Montanarine",
+          price: "£9.90",
+          description: "Fried pizza bites topped with mozzarella, tomato, fresh basil and grana cheese",
+          isVegetarian: true
         }
       ]
     },
@@ -251,64 +251,26 @@ const Menu = () => {
           description: "Paccheri pasta with Sicilian sausage, mushrooms, onion, tomato sauce, topped with Grana Padano and parsley"
         },
         {
-          name: "Pollo alla Cacciatora",
-          price: "£19.90",
-          description: "Chicken breast with tomato, red onion, capers, celery, olives and carrots served with bread"
-        },
-        {
-          name: "Spezzatino di Carne",
-          price: "£20.90",
-          description: "Beef and Sicilian sausage stew with celery, red onion, tomato, carrots and potatoes served served with a small bread roll"
-        },
-        {
-          name: "Tagliata di Manzo",
-          price: "£27,80",
-          description: "Ribeye with truffle oil and grana padano cheese fries, rocket, grana padano and sriracha mayo",
-        },
-        {
-          name: "Salmone Grigliato",
-          price: "£21.90",
-          description: "Garlic & chilli broccoli, lemon cream",
-          spiceLevel: 1
-        },
-        {
-          name: "Salsiccia Grigliata",
+          name: "Paccheri con Crema di Spinaci",
           price: "£18.90",
-          description: "Sausages with chilli friarielli and roast potatoes",
-          spiceLevel: 1
-        },
-        {
-          name: "Grigliata di Pesce",
-          price: [
-            { size: "Regular", price: "£27.90" },
-            { size: "Large", price: "£54.90" }
-          ],
-          description: "Mixed grilled seafood"
-        },
-        {
-          name: "Risotto alla Marinara",
-          price: "£21.90",
-          description: "Seafood risotto"
-        },
-        {
-          name: "Pappardelle al Tartufo & Porcini",
-          price: "24.90",
-          description: "Mixed mushrooms in a cream sauce with garlic and parsley, Bufala mozzarella, grated Grana Padano, topped with black truffle flakes",
+          description: "Paccheri pasta with spinach cream, double cream, mushrooms, cherry tomatoes, garlic served with cheese and toasted almonds flakes on top",
           isVegetarian: true
         },
         {
-          name: "Zuppa di Pesce",
-          price: "£24.90",
-          description: "Spicy seafood soup",
-          spiceLevel: 2
+          name: "Involtini di Pollo con Crudo & Scamorza",
+          price: "£22.90",
+          description: "Chicken filled with scamorza, rolled with prosciutto crudo served in a gravy mushroom sauce"
         },
         {
-          name: "Grigliata di Carne",
-          price: [
-            { size: "Regular", price: "£28,90" },
-            { size: "Large", price: "£49.90" }
-          ],
-          description: "Mixed grilled meat platter"
+          name: "Tonno alla Griglia",
+          price: "£27.90",
+          description: "Grilled tuna steak served with green beans, boiled potatoes, capers, olives, mix cherry tomatoes and garlic"
+        },
+        {
+          name: "Cotoletta alla Milanese",
+          price: "£24.90",
+          description: "Pork breaded cutlet Milanese style (250gr-280gr) served with rocket and grana cheese, fries, and chimichurri sauce",
+          spiceLevel: 1
         }
       ]
     },
@@ -357,117 +319,91 @@ const Menu = () => {
       ]
     },
     {
-      title: "Pizza - Classic",
+      title: "Pizza",
       icon: FaPizzaSlice,
       ref: sectionRefs.pizzas,
       items: [
         {
           name: "Margherita",
-          price: "£11.90",
+          price: "£12.90",
           isVegetarian: true
         },
         {
           name: "Marinara",
-          price: "£14.90",
+          price: "£15.90",
+          description: "Tomato, garlic, capers, oregano",
           isVegetarian: true
         },
         {
           name: "Diavola",
-          price: "£14.90",
+          price: "£15.90",
           spiceLevel: 1
         },
         {
           name: "Romana",
-          price: "£14.90"
-        },
-        {
-          name: "Calzone",
-          price: "£16.90"
+          price: "£15.90"
         },
         {
           name: "Parmigiana",
-          price: "£15.90",
+          price: "£16.90",
           isVegetarian: true
         },
         {
           name: "4 Formaggi",
-          price: "£15.90",
+          price: "£16.90",
           isVegetarian: true
         },
         {
           name: "Vegetariana",
-          price: "£15.90",
+          price: "£16.90",
           isVegetarian: true
-        }
-      ]
-    },
-    {
-      title: "Pizza - Special",
-      icon: FaPizzaSlice,
-      ref: sectionRefs.pizzas,
-      items: [
+        },
+        {
+          name: "Calabrese",
+          price: "£17.90",
+          spiceLevel: 2
+        },
         {
           name: "Friarielli",
-          price: "£16.90",
+          price: "£17.90",
           spiceLevel: 1
-        },
-        {
-          name: "San Daniele",
-          price: "£16.90"
-        },
-        {
-          name: "Marci Special",
-          price: "£16.90",
-          spiceLevel: 1
-        },
-        {
-          name: "Mariù Special",
-          price: "£17.90"
         },
         {
           name: "Bufalina",
-          price: "£17.90"
-        },
-        {
-          name: "Pistacchiosa",
           price: "£18.90"
         },
         {
           name: "Valtellina",
-          price: "£17.90"
-        },
-        {
-          name: "Tartufo Nero",
-          price: "£24.90",
-          description: "Mozzarella, porcini mushrooms cream, rocket, bufala on top and black truffle flakes",
-          isVegetarian: true
-        },
-        {
-          name: "Pizza alla Zucca",
-          price: "£18.90",
-          description: "Pumpkin cream and cubes, bufala mozzarella, crispy bacon, red onion, cherry tomatoes and walnuts"
-        },
-        {
-          name: "Nonnina",
-          price: "£16.90"
-        },
-        {
-          name: "Calzone Fritto",
-          price: "£19,90"
-        },
-        {
-          name: "Frutti di Mare",
-          price: "£18.90",
-          spiceLevel: 1
-        },
-        {
-          name: "Salmone",
           price: "£18.90"
         },
         {
-          name: "Calabrese",
-          price: "£16.90",
-          spiceLevel: 2
+          name: "Frutti di Mare",
+          price: "£19.90",
+          spiceLevel: 1
+        },
+        {
+          name: "Nonnina",
+          price: "£17.90"
+        },
+        {
+          name: "Salmone",
+          price: "£19.90"
+        },
+        {
+          name: "Pizza Carbonara",
+          price: "£19.90",
+          description: "Mozzarella, egg yolk cream, parmigiano cheese, pecorino cheese, guanciale and black pepper"
+        },
+        {
+          name: "Rustica",
+          price: "£19.90",
+          description: "Tomato, mozzarella fior di latte, Sicilian sausage, peppers, onion, olives and pecorino cheese on top"
+        },
+        {
+          name: "Contadina",
+          price: "£19.90",
+          description: "Tomato, mozzarella fior di latte, courgettes, Philadelphia, mix cherry tomatoes and toasted almonds flakes on top",
+          isVegetarian: true
         }
       ]
     },
@@ -826,7 +762,7 @@ const Menu = () => {
             {menuSections
               .filter(section => {
                 if (activeSection === 'food') {
-                  return ['Starters', 'Main Courses', 'Sides', 'Pizza - Classic', 'Pizza - Special', 'Salads'].includes(section.title);
+                  return ['Starters', 'Main Courses', 'Sides', 'Pizza', 'Salads'].includes(section.title);
                 } else {
                   return ['Hot Drinks', 'Cold Drinks', 'Juices', 'Bonus Drinks'].includes(section.title);
                 }
@@ -935,8 +871,8 @@ const Menu = () => {
                     </Card>
                   </Box>
 
-                  {/* Insert Pizza Extras after Pizza - Special section */}
-                  {activeSection === 'food' && section.title === 'Pizza - Special' && (
+                  {/* Insert Pizza Extras after Pizza section */}
+                  {activeSection === 'food' && section.title === 'Pizza' && (
                     <Box w="100%" mb={8}>
                       <Card variant="outline">
                         <CardHeader py={3}>
@@ -978,6 +914,9 @@ const Menu = () => {
                           </SimpleGrid>
                           <Text mt={4} fontSize="xs" color="gray.600" textAlign="center">
                             All pizzas are seasoned with oil, oregano & basil.
+                          </Text>
+                          <Text mt={1} fontSize="xs" color="gray.600" textAlign="center">
+                            🌾 Gluten free base available for pizzas and pastas — £3.50 supplement
                           </Text>
                         </CardBody>
                       </Card>
@@ -1043,6 +982,3 @@ const Menu = () => {
 };
 
 export default Menu; 
-
-
-
