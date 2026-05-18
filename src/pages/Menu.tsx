@@ -774,7 +774,7 @@ const Menu = () => {
       width={{ base: "90%", sm: "auto" }}
       maxW="300px"
     >
-      Download Full Menu
+      Download Full Menu - June 1st
     </Button>
 
     <Button
