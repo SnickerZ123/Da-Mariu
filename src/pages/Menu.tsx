@@ -765,7 +765,7 @@ const Menu = () => {
   <VStack spacing={3}>
     <Button
       as="a"
-      href="/menu/Menu_2026_01_05.pdf"
+      href="/menu/Menu_2026_05_18_2026.pdf"
       download
       size={{ base: "sm", md: "md" }}
       colorScheme="olive"
