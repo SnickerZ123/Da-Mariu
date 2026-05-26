@@ -715,7 +715,7 @@ const Menu = () => {
 
     <Button
       as="a"
-      href="/menu/Lunch_Menu_Tue_Friday.pdf"
+      href="/menu/Lunch_Menu_2026_05_26.pdf"
       download
       size={{ base: "sm", md: "md" }}
       colorScheme="olive"
