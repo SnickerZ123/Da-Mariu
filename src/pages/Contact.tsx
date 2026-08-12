@@ -428,15 +428,15 @@ const Contact = () => {
                     </Tr>
                     <Tr>
                       <Td pl={0} pr={{ base: 4, md: 8 }} color="gray.600" fontWeight="medium">Tuesday</Td>
-                      <Td pl={0} color="gray.500">8:00 AM – 10:00 PM</Td>
+                      <Td pl={0} color="gray.500">8:00 AM – 3:30 PM & 5:00 PM – 10:00 PM</Td>
                     </Tr>
                     <Tr>
                       <Td pl={0} pr={{ base: 4, md: 8 }} color="gray.600" fontWeight="medium">Wednesday</Td>
-                      <Td pl={0} color="gray.500">8:00 AM – 10:00 PM</Td>
+                      <Td pl={0} color="gray.500">8:00 AM – 3:30 PM & 5:00 PM – 10:00 PM</Td>
                     </Tr>
                     <Tr>
                       <Td pl={0} pr={{ base: 4, md: 8 }} color="gray.600" fontWeight="medium">Thursday</Td>
-                      <Td pl={0} color="gray.500">8:00 AM – 10:00 PM</Td>
+                      <Td pl={0} color="gray.500">8:00 AM – 3:30 PM & 5:00 PM – 10:00 PM</Td>
                     </Tr>
                     <Tr>
                       <Td pl={0} pr={{ base: 4, md: 8 }} color="gray.600" fontWeight="medium">Friday</Td>
