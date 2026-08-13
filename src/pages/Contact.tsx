@@ -171,7 +171,7 @@ const Contact = () => {
                         color="gray.700" 
                         fontSize="sm"
                       >
-                        15 Wote Street
+                        Da Mariù - 15 Wote Street
                       </Text>
                       <Text 
                         textAlign="center" 
