@@ -278,8 +278,7 @@ const Menu = () => {
         { name: "Tonic Water", price: "£3.95", description: "Schweppes 200ml" },
         { name: "San Pellegrino Limonata", price: "£4.50", description: "330ml" },
         { name: "Estathé", price: "£4.50", description: "Peach or lemon - 330ml" },
-        { name: "Iced Latte", price: "£4.80" },
-        // TODO: confirm this price with the owner. The PDF still shows £4.70 (old plain Iced Latte was £4.20)
+        { name: "Iced Latte", price: "£4.20" },
         { name: "Iced Latte with Syrup", price: "£4.70" }
       ]
     },
