@@ -28,6 +28,8 @@ import {
   useDisclosure,
   Tooltip,
   useBreakpointValue,
+  Alert,
+  AlertIcon,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { 
@@ -42,6 +44,8 @@ import {
   FaCoffee,
   FaGlassWhiskey,
   FaGlassMartini,
+  FaTree,
+  FaGift,
 } from 'react-icons/fa';
 import { GiNoodles, GiBowlOfRice, GiFrenchFries, GiSodaCan, GiInfo } from 'react-icons/gi';
 import { TbGlassFullFilled } from 'react-icons/tb';
@@ -63,6 +67,7 @@ interface MenuItem {
 }
 
 interface MenuSection {
+  id: string;
   title: string;
   icon: any;
   ref: React.RefObject<HTMLDivElement>;
@@ -82,8 +87,30 @@ const drinkSections = [
   { id: 'hot-drinks', title: 'Hot Drinks' },
   { id: 'cold-drinks', title: 'Cold Drinks' },
   { id: 'juices', title: 'Juices' },
-  { id: 'bonus-drinks', title: 'Bonus Drinks' },
+  { id: 'bonus-drinks', title: 'Fizzy Drinks' },
 ];
+
+// Christmas menu data
+const christmasMenu = {
+  starters: [
+    { name: "Cozze al Vino Bianco", description: "Mussels cooked in white wine, garlic, parsley, cherry tomatoes and chilli, served with homemade bread" },
+    { name: "Cocktail di Gamberi & Salmone Affumicato", description: "Cocktail of tiger prawns and smoked salmon served with mixed salad and cocktail sauce" },
+    { name: "Tagliere Mariù", description: "Mixed platter with prosciutto crudo, mortadella, olives, artichokes, sun-dried tomatoes and a selection of Italian cheese, served with homemade bread" },
+    { name: "Montanarine", description: "Fried pizza bites topped with tomato sauce, bufala mozzarella, grana padano cheese and fresh basil" },
+  ],
+  mains: [
+    { name: "Spigola alla Mediterranea", description: "Grilled seabass fillet with cherry tomatoes, capers, olives, green beans, boiled potatoes, garlic, chilli and mint, served with a lemon cream sauce" },
+    { name: "Paccheri alla Vodka", description: "Paccheri pasta with pancetta, onion, tomato sauce, double cream, vodka and parsley" },
+    { name: "Paccheri Gamberi & Polpa di Granchio", description: "Paccheri pasta with prawns, crab meat, cherry tomatoes, garlic, chilli, parsley, mint and lemon zest on top" },
+    { name: "Risotto del Contadino", description: "Risotto with mushrooms, cherry tomatoes, aubergines, broccoli and grana padano flakes" },
+    { name: "Cotoletta alla Milanese", description: "300gr pork breaded cutlet Milanese style, served with rocket and grana padano cheese, fries and chimichurri sauce" },
+  ],
+  desserts: [
+    { name: "Pandoro with Pistacchio Cream" },
+    { name: "Chocolate Profiterole" },
+    { name: "Pistacchio or Chocolate Cannolo" },
+  ],
+};
 
 const Menu = () => {
   const [activeSection, setActiveSection] = useState('food');
@@ -111,370 +138,153 @@ const Menu = () => {
 
   const menuSections: MenuSection[] = [
     {
+      id: "starters",
       title: "Starters",
       icon: FaStar,
       ref: sectionRefs.starters,
       items: [
-        {
-          name: "Bruschetta",
-          price: "£7.99",
-          description: "Cherry tomatoes, bufala mozzarella, prosciutto crudo, garlic, basil"
-        },
-        {
-          name: "Tagliere Mariù",
-          price: "£10.90",
-          description: "Cold cuts, cheese, olives, artichokes, sun-dried tomatoes, bread"
-        },
-        {
-          name: "Tagliere Mariù x2",
-          price: "£19.90",
-          description: "Sharing version - Cold cuts, cheese, olives, artichokes, sun-dried tomatoes, bread"
-        },
-        {
-          name: "Antipasto Caldo",
-          price: "£12.90",
-          description: "Arancine, panelle, cazzilli, aperi pasta cacio & pepe"
-        },
-        {
-          name: "Bufala",
-          price: "£10.90",
-          description: "Bufala mozzarella, grilled bell peppers, basil pesto served with breadsticks",
-          isVegetarian: true
-        },
-        {
-          name: "Aperi Pasta Cacio & Pepe",
-          price: "£9.90",
-          description: "Fried pasta arancini filled with cacio & pepe served with tomato sauce, grana padano cheese and breadsticks",
-          isVegetarian: true
-        },
-        {
-          name: "Gamberoni",
-          price: "£12.90",
-          description: "Bruschetta with king prawns, garlic, cherry tomatoes, chilli and lemon zest",
-          spiceLevel: 1
-        },
-        {
-          name: "Ortolano",
-          price: "£9.90",
-          description: "Fried vegetables with sriracha mayo",
-          isVegetarian: true
-        },
-        {
-          name: "Zuppa di Cozze",
-          price: "£10.90",
-          description: "Mussel soup with tomato, garlic, basil, bread"
-        },
-        {
-          name: "Olive Nocellara",
-          price: "£6.99",
-          description: "Green olives",
-          isVegetarian: true
-        },
-        {
-          name: "Tagliere di Formaggi",
-          price: "£13.90",
-          description: "Cheese selection with jam & bread",
-          isVegetarian: true
-        },
-        {
-          name: "Coppo Fritto",
-          price: "£13.50",
-          description: "Fried seafood with sriracha mayo",
-          spiceLevel: 2
-        },
-        {
-          name: "Calamari Fritti",
-          price: "£10.90",
-          description: "Fried squid with sriracha mayo"
-        },
-        {
-          name: "Carpaccio di Bresaola",
-          price: "£15.90",
-          description: "Bresaola, rocket, grana cheese, balsamic"
-        },
-        {
-          name: "Pane Pizza",
-          price: [
-            { size: "Small", price: "£4.90" },
-            { size: "Large", price: "£7.90" }
-          ],
-          description: "Pizza bread with garlic & cheese",
-          isVegetarian: true
-        },
-        {
-          name: "Montanarine",
-          price: "£9.90",
-          description: "Fried pizza bites topped with mozzarella, tomato, fresh basil and grana cheese",
-          isVegetarian: true
-        }
+        { name: "Montanarine", price: "£9.90", description: "Three fried pizza bites topped with tomato sauce, bufala mozzarella, grana padano cheese and fresh basil", isVegetarian: true },
+        { name: "Bruschetta", price: "£7.99", description: "Cherry tomatoes, bufala mozzarella, prosciutto crudo, garlic and basil" },
+        { name: "Carpaccio di Bresaola", price: "£15.90", description: "Bresaola, rocket, grana cheese, balsamic glaze and lemon served with breadsticks" },
+        { name: "Tagliere Mariù", price: [{ size: "x1", price: "£10.90" }, { size: "x2", price: "£19.90" }], description: "Parma ham, salame, mortadella, olives, artichokes, sun-dried tomatoes and selection of Italian cheese served with bread" },
+        { name: "Antipasto Caldo", price: "£12.90", description: "Arancine, panelle, cazzilli and aperi pasta cacio & pepe" },
+        { name: "Bufala", price: "£10.90", description: "Bufala mozzarella, grilled bell peppers, basil pesto served with breadsticks", isVegetarian: true },
+        { name: "Ortolano", price: "£9.90", description: "Mixed fried vegetables in batter served with sriracha mayo", isVegetarian: true },
+        { name: "Zuppa di Cozze", price: "£10.90", description: "Mussel soup with tomato, garlic and basil served with bread" },
+        { name: "Olive Nocellara", price: "£6.99", description: "Green olives", isVegetarian: true },
+        { name: "Cestino di Pane con Olio & Aceto", price: "£8.90", description: "Homemade bread & breadsticks served with olive oil & balsamic vinegar", isVegetarian: true },
+        { name: "Tagliere di Formaggi", price: "£13.90", description: "Mix of cheese served with selection of jam and bread", isVegetarian: true },
+        { name: "Coppo Fritto", price: "£13.50", description: "Fried squid, king prawns and salmon served with sriracha mayo" },
+        { name: "Pane Pizza", price: [{ size: "Small", price: "£5.90" }, { size: "Large", price: "£8.90" }], description: "Pizza bread with garlic and cheese", isVegetarian: true },
+        { name: "Calamari Fritti", price: "£10.90", description: "Fried squid served with sriracha mayo" },
+        { name: "Aperi Pasta Cacio e Pepe", price: "£9.90", description: "Fried pasta arancini filled with cacio e pepe served with tomato sauce, grana padano cheese and breadsticks", isVegetarian: true },
+        { name: "Gamberoni", price: "£12.90", description: "Bruschetta with king prawns, garlic, cherry tomatoes, chilli and lemon zest", spiceLevel: 1 }
       ]
     },
     {
+      id: "mains",
       title: "Main Courses",
       icon: GiNoodles,
       ref: sectionRefs.mains,
       items: [
-        {
-          name: "Lasagna",
-          price: "£15.90",
-          description: "Ragù, béchamel, grana padano"
-        },
-        {
-          name: "Carbonara Spaghetti",
-          price: "£15.90",
-          description: "Eggs, guanciale, pecorino"
-        },
-        {
-          name: "Norma Paccheri",
-          price: "£15.90",
-          description: "Tomato, fried aubergines, ricotta",
-          isVegetarian: true
-        },
-        {
-          name: "Paccheri ai Gamberoni",
-          price: "£19.90",
-          description: "Paccheri pasta with king prawns, cherry tomatoes, basil pesto and double cream"
-        },
-        {
-          name: "Ragù Pappardelle",
-          price: "£16.90",
-          description: "Homemade beef ragù"
-        },
-        {
-          name: "Scoglio Spaghetti",
-          price: "19.90",
-          description: "Mussels, squid, peeled king prawns, cherry tomatoes, tomato sauce, garlic, mint, olive oil, served with a king prawn on top"
-        },
-        {
-          name: "Paccheri alla Boscaiola",
-          price: "18.90",
-          description: "Paccheri pasta with Sicilian sausage, mushrooms, onion, tomato sauce, topped with Grana Padano and parsley"
-        },
-        {
-          name: "Paccheri con Crema di Spinaci",
-          price: "£18.90",
-          description: "Paccheri pasta with spinach cream, double cream, mushrooms, cherry tomatoes, garlic served with cheese and toasted almonds flakes on top",
-          isVegetarian: true
-        },
-        {
-          name: "Involtini di Pollo con Crudo & Scamorza",
-          price: "£22.90",
-          description: "Chicken filled with scamorza, rolled with prosciutto crudo served in a gravy mushroom sauce"
-        },
-        {
-          name: "Tonno alla Griglia",
-          price: "£27.90",
-          description: "Grilled tuna steak served with green beans, boiled potatoes, capers, olives, mix cherry tomatoes and garlic"
-        },
-        {
-          name: "Cotoletta alla Milanese",
-          price: "£24.90",
-          description: "Pork breaded cutlet Milanese style (250gr-280gr) served with rocket and grana cheese, fries, and chimichurri sauce",
-          spiceLevel: 1
-        }
+        { name: "Lasagna", price: "£15.90", description: "Ragù, besciamella sauce and grana padano cheese" },
+        { name: "Carbonara Spaghetti", price: "£15.90", description: "Eggs, guanciale, grana padano cheese, pecorino cheese and black pepper" },
+        { name: "Paccheri con Crema di Spinaci", price: "£18.90", description: "Paccheri pasta with spinach cream, double cream, mushrooms, cherry tomatoes, garlic served with cheese and toasted almond flakes on top", isVegetarian: true },
+        { name: "Norma Paccheri", price: "£15.90", description: "Paccheri pasta with tomato sauce, fried aubergines and salty ricotta cheese", isVegetarian: true },
+        { name: "Paccheri ai Gamberoni", price: "£19.90", description: "Paccheri pasta with king prawns, cherry tomatoes, basil pesto and double cream" },
+        { name: "Ragù Pappardelle", price: "£16.90", description: "Homemade ragù (mince beef, carrots, onion, tomato sauce and basil) with grana cheese on top" },
+        { name: "Scoglio Spaghetti", price: "£19.90", description: "Mussels, squid, peeled king prawns, cherry tomatoes, tomato sauce, garlic, mint and oil, served with a king prawn on top" },
+        { name: "Paccheri alla Boscaiola", price: "£18.90", description: "Paccheri pasta with Sicilian sausage, mushrooms, onion, tomato sauce, grana padano on top and parsley" },
+        { name: "Risotto alla Marinara", price: "£21.90", description: "Risotto with mussels, squid, swordfish, prawns, salmon, cherry tomatoes, garlic, mint and basil" },
+        { name: "Tagliata di Manzo", price: "£27.90", description: "Ribeye steak 10oz served with rocket, cherry tomatoes, grana padano on top, truffle oil and grana padano fries and sriracha mayo" },
+        { name: "Salsiccia Grigliata", price: "£20.90", description: "Grilled Sicilian sausages with garlic & chilli seasoned friarielli served with roast potatoes", spiceLevel: 1 },
+        { name: "Spezzatino di Carne & Salsiccia Siciliana", price: "£24.90", description: "Beef and Sicilian sausage stew with celery, red onion, tomato, carrots and potatoes served with homemade bread" },
+        { name: "Pollo alla Pizzaiola", price: "£22.90", description: "Chicken breast in a \"picchi-pacchi\" tomato sauce (fast chopped plum tomato sauce), garlic, basil, oregano, ham, mozzarella on top served with rocket and grana padano flakes" },
+        { name: "Salmone Grigliato", price: "£21.90", description: "Grilled salmon fillet with stir fried potatoes, mushrooms and broccoli (chilli and garlic) served with a lemon seasoned cream", spiceLevel: 1 },
+        { name: "Grigliata di Pesce", price: [{ size: "x1", price: "£27.90" }, { size: "x2", price: "£54.90" }], description: "Mix of grilled king prawns, squid, seabass, salmon and swordfish served with salad and glaze (lemon, oil, garlic and oregano)" },
+        { name: "Zuppa di Pesce", price: "£27.90", description: "Fish mix soup of mussels, salmon, calamari, seabass, prawns, garlic, chilli and mint served with homemade bread", spiceLevel: 1 }
       ]
     },
     {
+      id: "sides",
       title: "Sides",
       icon: GiFrenchFries,
       ref: sectionRefs.sides,
       items: [
-        {
-          name: "Patate al Forno",
-          price: "£6.90",
-          description: "Roast potatoes with garlic & herbs",
-          isVegetarian: true
-        },
-        {
-          name: "Patatine Fritte",
-          price: "£4.50",
-          description: "Fries",
-          isVegetarian: true
-        },
-        {
-          name: "Patatine al Tartufo",
-          price: "£7.90",
-          description: "Truffle oil and grana padano cheese fries",
-          isVegetarian: true
-        },
-        {
-          name: "Funghi Trifolati",
-          price: "£6.90",
-          description: "Mushrooms with garlic, parsley",
-          isVegetarian: true
-        },
-        {
-          name: "Broccoli",
-          price: "£6.90",
-          description: "Broccoli with garlic & chilli",
-          isVegetarian: true,
-          spiceLevel: 1
-        },
-        {
-          name: "Mix Salad",
-          price: "£6.90",
-          description: "Mix leaves, cherry tomatoes, olives, onion and balsamic glaze",
-          isVegetarian: true
-        }
+        { name: "Patate al Forno", price: "£6.90", description: "Roast potatoes with herbs and garlic", isVegetarian: true },
+        { name: "Patatine al Tartufo", price: "£7.90", description: "Truffle oil and grana padano cheese fries", isVegetarian: true },
+        { name: "Patatine Fritte", price: "£4.50", description: "Fries", isVegetarian: true },
+        { name: "Funghi Trifolati", price: "£6.90", description: "Mushrooms with garlic oil, parsley and black pepper", isVegetarian: true },
+        { name: "Broccoli", price: "£6.90", description: "Broccoli with garlic, chilli and oil", isVegetarian: true, spiceLevel: 1 },
+        { name: "Mix Salad", price: "£6.90", description: "Mix leaves, cherry tomatoes, olives, onion and balsamic glaze", isVegetarian: true }
       ]
     },
     {
+      id: "pizzas",
       title: "Pizza",
       icon: FaPizzaSlice,
       ref: sectionRefs.pizzas,
       items: [
-        {
-          name: "Margherita",
-          price: "£12.90",
-          isVegetarian: true
-        },
-        {
-          name: "Marinara",
-          price: "£15.90",
-          description: "Tomato, garlic, capers, oregano",
-          isVegetarian: true
-        },
-        {
-          name: "Diavola",
-          price: "£15.90",
-          spiceLevel: 1
-        },
-        {
-          name: "Romana",
-          price: "£15.90"
-        },
-        {
-          name: "Parmigiana",
-          price: "£16.90",
-          isVegetarian: true
-        },
-        {
-          name: "4 Formaggi",
-          price: "£16.90",
-          isVegetarian: true
-        },
-        {
-          name: "Vegetariana",
-          price: "£16.90",
-          isVegetarian: true
-        },
-        {
-          name: "Calabrese",
-          price: "£17.90",
-          spiceLevel: 2
-        },
-        {
-          name: "Friarielli",
-          price: "£17.90",
-          spiceLevel: 1
-        },
-        {
-          name: "Bufalina",
-          price: "£18.90"
-        },
-        {
-          name: "Valtellina",
-          price: "£18.90"
-        },
-        {
-          name: "Frutti di Mare",
-          price: "£19.90",
-          spiceLevel: 1
-        },
-        {
-          name: "Nonnina",
-          price: "£17.90"
-        },
-        {
-          name: "Salmone",
-          price: "£19.90"
-        },
-        {
-          name: "Pizza Carbonara",
-          price: "£19.90",
-          description: "Mozzarella, egg yolk cream, parmigiano cheese, pecorino cheese, guanciale and black pepper"
-        },
-        {
-          name: "Rustica",
-          price: "£19.90",
-          description: "Tomato, mozzarella fior di latte, Sicilian sausage, peppers, onion, olives and pecorino cheese on top"
-        },
-        {
-          name: "Contadina",
-          price: "£19.90",
-          description: "Tomato, mozzarella fior di latte, courgettes, Philadelphia, mix cherry tomatoes and toasted almonds flakes on top",
-          isVegetarian: true
-        }
+        { name: "Margherita", price: "£12.90", description: "Tomato, mozzarella fior di latte, basil and olive oil", isVegetarian: true },
+        { name: "Romana", price: "£15.90", description: "Tomato, mozzarella fior di latte and ham" },
+        { name: "Diavola", price: "£15.90", description: "Tomato, mozzarella fior di latte and spicy salame", spiceLevel: 1 },
+        { name: "Marinara", price: "£15.90", description: "Tomato, garlic, anchovies, capers, basil, oregano and olive oil" },
+        { name: "Parmigiana", price: "£16.90", description: "Tomato, mozzarella fior di latte, fried aubergines, basil and grana padano", isVegetarian: true },
+        { name: "4 Formaggi", price: "£16.90", description: "Mozzarella fior di latte, gorgonzola, scamorza and grana padano", isVegetarian: true },
+        { name: "Vegetariana", price: "£16.90", description: "Tomato, mozzarella fior di latte, mushrooms, broccoli, peppers, onion and artichokes", isVegetarian: true },
+        { name: "San Daniele", price: "£16.90", description: "Tomato, mozzarella fior di latte, prosciutto crudo, rocket and grana padano" },
+        { name: "Valtellina", price: "£18.90", description: "Mozzarella fior di latte, cherry tomatoes, bresaola, rocket and grana padano" },
+        { name: "Nonnina", price: "£17.90", description: "Tomato, mozzarella fior di latte, tuna, onion and olives" },
+        { name: "Bufalina", price: "£18.90", description: "Tomato, bufala mozzarella, sun dried tomatoes, prosciutto crudo and basil pesto" },
+        { name: "Pistacchiosa", price: "£18.90", description: "Tomato, bufala mozzarella, mortadella and pistachio pesto" },
+        { name: "Rustica", price: "£19.90", description: "Tomato, mozzarella fior di latte, Sicilian sausage, peppers, onion, olives and pecorino cheese on top" },
+        { name: "Pizza Carbonara", price: "£19.90", description: "Mozzarella fior di latte, egg yolk cream, parmigiano and pecorino cheese, guanciale and black pepper" },
+        { name: "Friarielli", price: "£16.90", description: "Tomato, mozzarella fior di latte, sausages, chilli friarielli and scamorza cheese", spiceLevel: 1 },
+        { name: "Marci Special", price: "£16.90", description: "Mozzarella, speck, spicy salame, scamorza and grana padano flakes", spiceLevel: 1 },
+        { name: "Mariù Special", price: "£17.90", description: "Tomato, mozzarella, mushroom, artichokes and Sicilian sausage" },
+        { name: "Calzone", price: "£16.90", description: "Tomato, mozzarella fior di latte and ham" },
+        { name: "Calzone Fritto", price: "£19.90", description: "Fried calzone filled with tomato, mozzarella fior di latte, ham, grana padano cheese and basil, served with tomato sauce, bufala mozzarella and basil on top" },
+        { name: "Calabrese", price: "£17.90", description: "Tomato, mozzarella fior di latte, spicy salame, nduja, olives, red onions and grana padano flakes on top", spiceLevel: 2 },
+        { name: "Frutti di Mare", price: "£19.90", description: "Tomato sauce, garlic, mussels, king prawns, squid, salmon, mint and chilli flakes", spiceLevel: 1 },
+        { name: "Salmone", price: "£19.90", description: "Tomato, mozzarella, cherry tomatoes, garlic, smoked salmon and rocket" }
       ]
     },
     {
+      id: "salads",
       title: "Salads",
       icon: FaCarrot,
       ref: sectionRefs.salads,
       items: [
-        {
-          name: "Insalata della Casa",
-          price: "£16.90"
-        },
-        {
-          name: "Mediterranea",
-          price: "£16.90"
-        },
-        {
-          name: "Primavera",
-          price: "£16.90"
-        },
-        {
-          name: "Valtellina",
-          price: "£16.90"
-        },
-        {
-          name: "Siciliana",
-          price: "£16.90",
-          isVegetarian: true
-        }
+        { name: "Insalata della Casa", price: "£16.90", description: "Tomato, red onion, olives, anchovies, boiled potatoes and basil" },
+        { name: "Mediterranea", price: "£16.90", description: "Tomato, tuna, lettuce, onion, capers and olives" },
+        { name: "Primavera", price: "£16.90", description: "Rocket, cherry tomatoes, smoked salmon and bufala mozzarella" },
+        { name: "Valtellina", price: "£16.90", description: "Rocket, bresaola, grana padano flakes, cherry tomatoes and walnuts" },
+        { name: "Siciliana", price: "£16.90", description: "Fennel, orange, olives and spring onion", isVegetarian: true }
       ]
     },
     {
+      id: "hot-drinks",
       title: "Hot Drinks",
       icon: FaCoffee,
       ref: sectionRefs['hot-drinks'],
       items: [
-        { name: "Espresso", price: "£2.70" },
-        { name: "Espresso Double", price: "£3.20" },
-        { name: "Caffè Macchiato", price: "£3.20" },
-        { name: "Americano", price: "£3.30" },
-        { name: "Cappuccino", price: "£3.90" },
-        { name: "Latte Macchiato", price: "£3.50" },
-        { name: "Latte Bianco", price: "£3.40" },
-        { name: "Flat White", price: "£3.90" },
-        { name: "Hot Chocolate", price: "£4.00" },
+        { name: "Espresso", price: "£2.80" },
+        { name: "Espresso Double", price: "£3.30" },
+        { name: "Caffè Macchiato", price: "£3.50" },
+        { name: "Americano", price: "£3.60" },
+        { name: "Cappuccino", price: "£4.20" },
+        { name: "Latte Macchiato", price: "£3.80" },
+        { name: "Flat White", price: "£4.20" },
+        { name: "Mocha", price: "£4.40" },
+        { name: "Hot Chocolate", price: "£4.35" },
         { name: "Black Tea", price: "£2.50" },
-        { name: "Aromatic Tea", price: "£3.00" }
+        { name: "Aromatic Tea", price: "£3.00", description: "Peppermint or green tea" },
+        { name: "Extra: Caramel, Vanilla or Hazelnut", price: "£0.60" },
+        { name: "Extra: Oat Milk or Decaf", price: "£0.80" }
       ]
     },
     {
+      id: "cold-drinks",
       title: "Cold Drinks",
       icon: FaGlassWhiskey,
       ref: sectionRefs['cold-drinks'],
       items: [
-        { name: "Sparkling Water", price: "£4.50", description: "500ml" },
-        { name: "Still Water", price: "£4.50", description: "500ml" },
+        { name: "Sparkling Water", price: "£4.20", description: "Glass bottle 500ml" },
+        { name: "Still Water", price: "£3.90", description: "Glass bottle 500ml" },
         { name: "CocaCola / Zero", price: "£4.50", description: "330ml" },
         { name: "Fanta / Sprite Zero", price: "£4.50", description: "330ml" },
-        { name: "Crodino", price: "£4.50" },
-        { name: "Tonic Water", price: "£4.50", description: "200ml" },
+        { name: "Red Bull", price: "£4.50", description: "250ml" },
+        { name: "Crodino", price: "£4.95" },
+        { name: "Tonic Water", price: "£3.95", description: "Schweppes 200ml" },
         { name: "San Pellegrino Limonata", price: "£4.50", description: "330ml" },
-        { name: "Estathé", price: [
-            { size: "Peach", price: "£3.90" },
-            { size: "Lemon", price: "£4.20" }
-          ], description: "330ml" },
-        { name: "Ice Latte", price: "£4.20" },
-        { name: "Ice Latte with Syrup", price: "£4.70" },
-        { name: "Red Bull", price: "£4.50", description: "250ml" }
+        { name: "Estathé", price: "£4.50", description: "Peach or lemon - 330ml" },
+        { name: "Iced Latte", price: "£4.80" },
+        // TODO: confirm this price with the owner. The PDF still shows £4.70 (old plain Iced Latte was £4.20)
+        { name: "Iced Latte with Syrup", price: "£4.70" }
       ]
     },
     {
+      id: "juices",
       title: "Juices",
       icon: TbGlassFullFilled,
       ref: sectionRefs.juices,
@@ -482,46 +292,45 @@ const Menu = () => {
         { name: "Peach", price: "£3.95", description: "Skipper - 200ml" },
         { name: "Pear", price: "£3.95", description: "Skipper - 200ml" },
         { name: "Pineapple", price: "£3.95", description: "Skipper - 200ml" },
-        { name: "Tomato", price: "£3.95", description: "Skipper - 200ml" },
+        { name: "Apple", price: "£3.95", description: "Skipper - 200ml" },
         { name: "Orange", price: "£3.95", description: "Skipper - 200ml" }
       ]
     },
     {
-      title: "Bonus Drinks",
+      id: "bonus-drinks",
+      title: "Sicilian Fizzy Drinks",
       icon: GiSodaCan,
       ref: sectionRefs['bonus-drinks'],
       items: [
-        { name: "Aranciata", price: "£4.90" },
-        { name: "Spuma", price: "£4.90" },
-        { name: "Gassosa", price: "£4.90" },
-        { name: "La Rossa", price: "£4.90" },
-        { name: "Bergamotto", price: "£4.90" },
-        { name: "Melograno e Fiori di Sambuco", price: "£4.90" },
-        { name: "Mandarino e Lime", price: "£4.90" },
-        { name: "Cedrata", price: "£4.90" },
-        { name: "Orzata", price: "£4.90" },
-        { name: "Limone e Zenzero", price: "£4.90" },
-        { name: "Limonata", price: "£4.90" },
-        { name: "Chinotto", price: "£4.90" }
+        { name: "Bona Spuma", price: "£4.90" },
+        { name: "Bona Bergamotto", price: "£4.90" },
+        { name: "Bona Melograno e Fiori di Sambuco", price: "£4.90" },
+        { name: "Bona Limonata", price: "£4.90" },
+        { name: "Bona Chinotto", price: "£4.90" }
       ]
     }
   ];
 
   const pizzaExtras = [
-    { name: "Onion", price: "£1.50" },
-    { name: "Mushroom", price: "£2.50" },
-    { name: "Salame", price: "£2.50" },
-    { name: "Nduja", price: "£3.00" },
-    { name: "Mozzarella", price: "£2.50" },
-    { name: "Pros. Crudo", price: "£3.00" },
-    { name: "Bufala", price: "£4.00" },
+    { name: "Artichokes", price: "£3.00" },
+    { name: "Rocket", price: "£2.50" },
+    { name: "Onion", price: "£2.50" },
+    { name: "Mushrooms", price: "£3.00" },
+    { name: "Nduja", price: "£3.50" },
+    { name: "Salame", price: "£3.00" },
+    { name: "Spicy Salame", price: "£3.00" },
+    { name: "Prosciutto Crudo", price: "£4.00" },
+    { name: "Bufala", price: "£4.50" },
+    { name: "Grated Parmigiano Pot", price: "£2.00" },
+    { name: "Peppers", price: "£3.50" },
+    { name: "Mozzarella", price: "£2.80" },
     { name: "Olives", price: "£2.50" },
     { name: "Capers", price: "£2.00" },
-    { name: "Anchovies", price: "£2.50" },
-    { name: "Aubergines", price: "£2.50" },
-    { name: "Tuna", price: "£3.50" },
+    { name: "Anchovies", price: "£3.00" },
+    { name: "Aubergines", price: "£3.50" },
+    { name: "Tuna", price: "£4.00" },
     { name: "Bresaola", price: "£4.50" },
-    { name: "Ham", price: "£2.50" }
+    { name: "Ham", price: "£3.00" }
   ];
 
   // Simple scroll function
@@ -620,6 +429,59 @@ const Menu = () => {
         </Container>
       </Box>
 
+{/* Christmas Menu */}
+<Container maxW={{ base: "95%", sm: "85%", md: "80%", lg: "900px" }} px={4}>
+  <Card mb={6} variant="outline" bg="white" borderColor="red.200" boxShadow="sm">
+    <CardHeader py={5} borderBottom="1px" borderColor="red.100" textAlign="center">
+      <Flex align="center" justify="center" gap={2} mb={1}>
+        <Icon as={FaTree} color="green.600" fontSize="2xl" />
+        <Heading size="lg" fontFamily="'Playfair Display', serif" color="red.700">
+          Christmas Menu
+        </Heading>
+        <Icon as={FaGift} color="red.500" fontSize="2xl" />
+      </Flex>
+      <Text fontSize="xl" fontWeight="bold" color="red.600">3 courses for £39.95</Text>
+      <Text fontSize="sm" color="gray.600">Available from 17th November · Only by pre-order</Text>
+      <Text fontSize="sm" color="gray.700" mt={1}>
+        Welcome Prosecco glass with Italian crisps and a Limoncello shot included
+      </Text>
+    </CardHeader>
+    <CardBody>
+      <Alert status="info" borderRadius="md" mb={5}>
+        <AlertIcon />
+        <Text fontSize="sm">
+          Bookings are now open for Christmas! We will also be open on Mondays throughout December, for parties only.
+        </Text>
+      </Alert>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+        {[
+          { title: 'Starters', items: christmasMenu.starters },
+          { title: 'Mains', items: christmasMenu.mains },
+          { title: 'Desserts', items: christmasMenu.desserts },
+        ].map((course) => (
+          <Box key={course.title}>
+            <Heading size="md" fontFamily="'Playfair Display', serif" color="green.700" textAlign="center" mb={3}>
+              {course.title}
+            </Heading>
+            <VStack spacing={3} align="stretch">
+              {course.items.map((item: { name: string; description?: string }) => (
+                <Box key={item.name} textAlign="center">
+                  <Text fontWeight="semibold" fontSize="sm" textTransform="uppercase" color="green.800">
+                    {item.name}
+                  </Text>
+                  {item.description && (
+                    <Text fontSize="xs" color="gray.600">{item.description}</Text>
+                  )}
+                </Box>
+              ))}
+            </VStack>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </CardBody>
+  </Card>
+</Container>
+
 {/* Main Menu Navigation */}
 <Container maxW={{ base: "95%", sm: "85%", md: "80%", lg: "900px" }} px={4}>
   <Card mb={6} variant="outline" bg="white" boxShadow="sm">
@@ -701,7 +563,7 @@ const Menu = () => {
   <VStack spacing={3}>
     <Button
       as="a"
-      href="/menu/Menu_2026_05_18_2026.pdf"
+      href="/menu/Menu-21.pdf"
       download
       size={{ base: "sm", md: "md" }}
       colorScheme="olive"
@@ -725,6 +587,20 @@ const Menu = () => {
       maxW="300px"
     >
       Download Lunch Menu
+    </Button>
+
+    <Button
+      as="a"
+      href="/menu/Christmas_Menu_2026.pdf"
+      download
+      size={{ base: "sm", md: "md" }}
+      colorScheme="red"
+      leftIcon={<FaTree />}
+      px={{ base: 4, md: 6 }}
+      width={{ base: "90%", sm: "auto" }}
+      maxW="300px"
+    >
+      Download Christmas Menu
     </Button>
   </VStack>
 </Box>
@@ -762,17 +638,15 @@ const Menu = () => {
             {menuSections
               .filter(section => {
                 if (activeSection === 'food') {
-                  return ['Starters', 'Main Courses', 'Sides', 'Pizza', 'Salads'].includes(section.title);
+                  return foodSections.some(s => s.id === section.id);
                 } else {
-                  return ['Hot Drinks', 'Cold Drinks', 'Juices', 'Bonus Drinks'].includes(section.title);
+                  return drinkSections.some(s => s.id === section.id);
                 }
               })
               .map((section, index, filteredSections) => (
                 <Box key={section.title}>
                   <Box 
-                    ref={sectionRefs[section.title === 'Main Courses' ? 'mains' : 
-                           section.title.startsWith('Pizza') ? 'pizzas' : 
-                           section.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')]}
+                    ref={sectionRefs[section.id as keyof typeof sectionRefs]}
                     mb={8}
                   >
                     <Card variant="outline" mb={6}>
@@ -926,6 +800,16 @@ const Menu = () => {
               ))}
           </Box>
         </SlideFade>
+
+        <Box textAlign="center" mb={10}>
+          <Text fontSize="xs" color="gray.600">Extra sriracha sauce £2.</Text>
+          <Text fontSize="xs" color="gray.600">
+            Our dishes are prepared in a kitchen where allergens are present, so we cannot guarantee that any food is completely free from traces. Menu descriptions do not always display all ingredients and allergens. Please ask a member of staff for more information.
+          </Text>
+          <Text fontSize="xs" color="gray.600" mt={1}>
+            A discretionary service charge of 12.5% will be added to bills of tables of 6 people or more. All prices include VAT.
+          </Text>
+        </Box>
       </Container>
 
       {/* Modal for full item details */}
